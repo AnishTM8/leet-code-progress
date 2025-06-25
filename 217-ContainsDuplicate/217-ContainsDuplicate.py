@@ -1,10 +1,6 @@
-# Last updated: 6/22/2025, 7:16:16 PM
-class Solution(object):
-    def containsDuplicate(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
+# Last updated: 6/24/2025, 8:29:14 PM
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
         num_set = set()
 
         for num in nums:
