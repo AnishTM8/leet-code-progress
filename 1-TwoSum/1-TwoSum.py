@@ -1,15 +1,13 @@
-# Last updated: 6/22/2025, 7:16:33 PM
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
+# Last updated: 6/25/2025, 11:44:53 PM
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         diff_map = {}
 
-        for key, value in enumerate(nums):
-            diff = target - value
+        for i, num in enumerate(nums):
+            diff = target - num
+
             if diff in diff_map:
-                return [diff_map[diff], key]
-            diff_map[value] = key
+                return [i, diff_map[diff]]
+            
+            diff_map[num] = i
+    
