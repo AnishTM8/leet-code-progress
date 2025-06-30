@@ -1,21 +1,21 @@
-# Last updated: 6/29/2025, 12:03:44 AM
+# Last updated: 6/30/2025, 3:18:08 PM
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        res, stack = [], []
+        res, sol =[], []
 
         def backtrack(openedN, closedN):
             if openedN == closedN == n:
-                res.append("".join(stack))
+                res.append("".join(sol))
             
             if openedN < n:
-                stack.append("(")
+                sol.append("(")
                 backtrack(openedN + 1, closedN)
-                stack.pop()
+                sol.pop()
             
             if closedN < openedN:
-                stack.append(")")
+                sol.append(")")
                 backtrack(openedN, closedN + 1)
-                stack.pop()
-        
+                sol.pop()
+            
         backtrack(0,0)
         return res
