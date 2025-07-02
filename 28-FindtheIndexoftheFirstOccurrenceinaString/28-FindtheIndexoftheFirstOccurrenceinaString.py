@@ -1,10 +1,17 @@
-# Last updated: 7/1/2025, 9:39:55 PM
+# Last updated: 7/2/2025, 3:36:51 PM
 class Solution:
-    def strStr(self, haystack: str, needle: str) -> int:
-        if needle =="":
-            return -1
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        l,r = 0, len(nums) - 1
 
-        for i in range(len(haystack) + 1 - len(needle)):
-            if haystack[i: i + len(needle)] == needle:
-                return i
-        return -1
+        while l <= r:
+            mid = (l+r)//2
+
+            if nums[mid] == target:
+                return mid
+            
+            if nums[mid] < target:
+                l = mid + 1
+            
+            else:
+                r = mid - 1
+        return l
