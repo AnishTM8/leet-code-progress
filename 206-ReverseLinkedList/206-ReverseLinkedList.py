@@ -1,11 +1,16 @@
-# Last updated: 6/23/2025, 11:57:34 PM
+# Last updated: 7/2/2025, 4:49:17 PM
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        num_set = set()
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev = None
 
-        for num in nums:
-            if num not in num_set:
-                num_set.add(num)
-            else:
-                return True
-        return False
+        while head:
+            nxt = head.next
+            head.next = prev
+            prev = head
+            head = nxt
+        return prev
