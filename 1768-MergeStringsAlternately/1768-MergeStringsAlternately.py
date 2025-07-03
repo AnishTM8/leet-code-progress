@@ -1,11 +1,18 @@
-# Last updated: 7/3/2025, 11:18:46 AM
+# Last updated: 7/3/2025, 11:27:13 AM
 class Solution:
-    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
-        for i in range(len(flowerbed)):
-            if flowerbed[i] == 0 and n!= 0:
-                prev = flowerbed[i - 1] if i > 0 else 0
-                nex = flowerbed[i + 1] if i < len(flowerbed) - 1 else 0
-                if prev == 0 and nex == 0:
-                    flowerbed[i] = 1
-                    n -= 1
-        return n<=0
+    def reverseVowels(self, s: str) -> str:
+        vowels = "AEIOUaeiou"
+        s_list = list(s)
+
+        l, r = 0, len(s) - 1
+
+        while l < r:
+            while l < r and s_list[l] not in vowels:
+                l += 1
+            while l < r and s_list[r] not in vowels:
+                r -= 1
+            s_list[l], s_list[r] = s_list[r], s_list[l]
+            l += 1
+            r -= 1
+        return "".join(s_list)
+            
