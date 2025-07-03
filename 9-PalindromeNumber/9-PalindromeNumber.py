@@ -1,27 +1,19 @@
-# Last updated: 6/25/2025, 9:44:29 AM
+# Last updated: 7/3/2025, 3:08:10 PM
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        # if x < 0:
-        #     return False
+        if x < 0:
+            return False
         
-        # divisor = 1
-        # while x >= divisor*10:
-        #     divisor *= 10
+        div = 1
+
+        while x >= div*10:
+            div *= 10
         
-        # while x:
-        #     if x%10 != x//divisor:
-        #         return False
-        #     x = (x%divisor) // 10
-        #     divisor = divisor/100
-        # return True
-
-        s = str(x)
-
-        l, r = 0, len(s) - 1
-
-        while l < r:
-            if s[l] != s[r]:
+        while x:
+            if x%10 != x//div:
                 return False
-            l += 1
-            r -= 1
+            x = (x%div)//10
+            div = div/100
         return True
+
+        
