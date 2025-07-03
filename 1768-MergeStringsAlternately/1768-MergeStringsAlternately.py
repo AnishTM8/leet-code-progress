@@ -1,10 +1,10 @@
-# Last updated: 7/3/2025, 10:59:41 AM
+# Last updated: 7/3/2025, 11:07:10 AM
 class Solution:
-    def gcdOfStrings(self, str1: str, str2: str) -> str:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        res = [False] * len(candies)
+        max_candies = max(candies)
 
-        if str1 + str2 != str2 + str1:
-            return ""
-        gcd = math.gcd(len(str1), len(str2))
-
-        return str1[:gcd]
-
+        for i in range(len(candies)):
+            if candies[i] + extraCandies >= max_candies:
+                res[i] = True
+        return res
