@@ -1,24 +1,21 @@
-# Last updated: 6/22/2025, 7:16:25 PM
-class Solution(object):
-    def isValidSudoku(self, board):
-        """
-        :type board: List[List[str]]
-        :rtype: bool
-        """
-        cols = defaultdict(set)
-        rows = defaultdict(set)
-        squares = defaultdict(set)
-
-        for r in range(9):
-            for c in range(9):
-                if board[r][c] == ".":
-                    continue
-                if (board[r][c] in cols[c] or
-                    board[r][c] in rows[r] or
-                    board[r][c] in squares[(r//3, c//3)]):
-                    return False
-                cols[c].add(board[r][c])
-                rows[r].add(board[r][c])
-                squares[(r//3, c//3)].add(board[r][c])
-        
-        return True
+# Last updated: 3/18/2026, 9:03:25 PM
+1class Solution:
+2    def isValidSudoku(self, board: List[List[str]]) -> bool:
+3        cols = collections.defaultdict(set)
+4        rows = collections.defaultdict(set)
+5        squares = collections.defaultdict(set)
+6
+7        for r in range(9):
+8            for c in range(9):
+9                if board[r][c] == ".":
+10                    continue
+11                if (board[r][c] in rows[r] or
+12                    board[r][c] in cols[c] or
+13                    board[r][c] in squares[(r//3,c//3)]):
+14                    return False
+15                
+16                rows[r].add(board[r][c])
+17                cols[c].add(board[r][c])
+18                squares[(r//3,c//3)].add(board[r][c])
+19        
+20        return True
