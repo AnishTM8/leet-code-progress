@@ -1,4 +1,4 @@
-# Last updated: 3/8/2026, 7:47:18 PM
+# Last updated: 3/27/2026, 5:56:18 PM
 1class ListNode:
 2    def __init__(self, key):
 3        self.key = key
@@ -7,7 +7,7 @@
 6class MyHashSet:
 7
 8    def __init__(self):
-9        self.set = [ListNode(0) for i in range(10**4)]
+9        self.set =[ListNode(0) for i in range(10**4)]
 10
 11    def add(self, key: int) -> None:
 12        index = key%len(self.set)
@@ -17,8 +17,8 @@
 16            if curr.next.key == key:
 17                return
 18            curr = curr.next
-19        
-20        curr.next = ListNode(key)
+19        curr.next = ListNode(key)    
+20            
 21
 22    def remove(self, key: int) -> None:
 23        index = key%len(self.set)
@@ -28,7 +28,7 @@
 27            if curr.next.key == key:
 28                curr.next = curr.next.next
 29                return
-30            curr = curr.next 
+30            curr = curr.next
 31
 32    def contains(self, key: int) -> bool:
 33        index = key%len(self.set)
@@ -39,8 +39,9 @@
 38                return True
 39            curr = curr.next
 40        return False
-41# Your MyHashSet object will be instantiated and called as such:
-42# obj = MyHashSet()
-43# obj.add(key)
-44# obj.remove(key)
-45# param_3 = obj.contains(key)
+41
+42# Your MyHashSet object will be instantiated and called as such:
+43# obj = MyHashSet()
+44# obj.add(key)
+45# obj.remove(key)
+46# param_3 = obj.contains(key)
