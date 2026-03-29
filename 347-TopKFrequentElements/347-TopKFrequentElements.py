@@ -1,4 +1,4 @@
-# Last updated: 3/12/2026, 5:48:11 PM
+# Last updated: 3/29/2026, 12:00:39 PM
 1class Solution:
 2    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 3        count = {}
@@ -7,13 +7,13 @@
 6        for num in nums:
 7            count[num] = 1 + count.get(num, 0)
 8        
-9        for num, cnt in count.items():
-10            freq[cnt].append(num)
+9        for n,c in count.items():
+10            freq[c].append(n)
 11        
 12        res = []
-13        for i in range(len(freq) - 1, 0, -1):
-14            for num in freq[i]:
-15                res.append(num)
-16                if k == len(res):
+13        for i in range(len(freq) - 1, -1, -1):
+14            for n in freq[i]:
+15                res.append(n)
+16                if len(res) == k:
 17                    return res
-18
+18            
