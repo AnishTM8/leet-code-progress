@@ -1,4 +1,4 @@
-# Last updated: 4/6/2026, 5:54:38 PM
+# Last updated: 4/6/2026, 5:55:12 PM
 1class Solution:
 2    def majorityElement(self, nums: List[int]) -> List[int]:
 3        count = defaultdict(int)
