@@ -1,24 +1,19 @@
-# Last updated: 6/22/2025, 7:16:21 PM
-class Solution(object):
-    def isPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        left, right = 0, len(s) - 1
-
-        while left < right:
-            while left < right and not self.isAlphaNum(s[left]):
-                left += 1
-            while right > left and not self.isAlphaNum(s[right]):
-                right -= 1
-
-            if s[left].lower() != s[right].lower():
-                return False
-            
-            left += 1
-            right -= 1
-        return True
-    
-    def isAlphaNum(self, c):
-        return (ord('A') <= ord(c) <= ord('Z') or ord("a") <= ord(c) <= ord("z") or ord('0') <= ord(c) <= ord('9')) 
+# Last updated: 4/12/2026, 9:53:50 AM
+1class Solution:
+2    def isPalindrome(self, s: str) -> bool:
+3        l, r = 0, len(s) - 1
+4
+5        while l <= r:
+6            while l < r and not s[l].isalnum():
+7                l += 1
+8
+9            while l < r  and not s[r].isalnum():
+10                r -= 1
+11
+12            if s[l].lower() != s[r].lower():
+13                return False
+14            
+15            l += 1
+16            r -= 1
+17        
+18        return True
